@@ -38,16 +38,17 @@ class QuoteGenerator extends React.Component {
 	}
 
 	decodeQuote (html) {
-		var txt = document.createElement('textarea');
+		let txt = document.createElement('textarea');
 		txt.innerHTML = html;
 		return txt.value;
+	}
 
 	fetchData () {
 		fetch('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', {cache: "no-store"})
 			.then(response => response.json())
 			.then(data => {
 				let parsedQuote = data[0]['content'].replace(/<\/?\w+>/g, '')
-				let htmlQuote = decodeQuote(parsedQuote)
+				let htmlQuote = this.decodeQuote(parsedQuote)
 
 				this.setState({
 						shareQuote: htmlQuote,
