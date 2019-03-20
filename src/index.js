@@ -20,6 +20,7 @@ class QuoteGenerator extends React.Component {
 		this.handleTwitterShare = this.handleTwitterShare.bind(this);
 		this.handleTumblrShare = this.handleTumblrShare.bind(this);
 		this.fetchData = this.fetchData.bind(this);
+		this.decodeQuote = this.decodeQuote.bind(this)
 	}
 
 
@@ -36,18 +37,20 @@ class QuoteGenerator extends React.Component {
 		this.fetchData();
 	}
 
-	componentDidUpdate(){
-	}
-
+	decodeQuote (html) {
+		var txt = document.createElement('textarea');
+		txt.innerHTML = html;
+		return txt.value;
 
 	fetchData () {
 		fetch('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', {cache: "no-store"})
 			.then(response => response.json())
 			.then(data => {
 				let parsedQuote = data[0]['content'].replace(/<\/?\w+>/g, '')
+				let htmlQuote = decodeQuote(parsedQuote)
 
 				this.setState({
-						shareQuote: parsedQuote,
+						shareQuote: htmlQuote,
 						currentAuthor: data[0]['title']
 				})
 			}
