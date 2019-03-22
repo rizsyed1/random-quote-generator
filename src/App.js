@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './index.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
+import { faQuoteLeft, faQuoteRight, faTwitter } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -11,8 +10,8 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			shareQuote: 'I am Riz.',
-			currentAuthor: 'Riz',
+			shareQuote: 'Quote Loading ',
+			currentAuthor: 'Author Loading',
 			color: 'red'
 		}
 		this.handleTwitterShare = this.handleTwitterShare.bind(this);
@@ -45,13 +44,17 @@ class App extends React.Component {
 		fetch('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', {cache: "no-store"})
 			.then(response => response.json())
 			.then(data => {
-				let parsedQuote = data[0]['content'].replace(/<\/?\w+>/g, '')
+				let parsedQuote = data[0]['content'].replace(/<\/?\w+\s?>/g, '')
 				let htmlQuote = this.decodeQuote(parsedQuote)
 
-				this.setState({
-						shareQuote: htmlQuote,
-						currentAuthor: data[0]['title']
-				})
+				if (htmlQuote.length > 300){
+					this.fetchData()
+				}	else {
+						this.setState({
+								shareQuote: htmlQuote,
+								currentAuthor: data[0]['title']
+						})
+					}
 			}
 			)
 	}
@@ -60,19 +63,21 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div id='quoteBox'>
-				<div id='quoteText'>
-					<span id='text'><FontAwesomeIcon icon={faQuoteLeft} />{this.state.shareQuote}<FontAwesomeIcon icon={faQuoteRight} /></span>
-				</div>
-				<div id='quoteAuthor'>
-					<span id='author'>{this.state.currentAuthor}</span>
-				</div>
-				<div id='buttons'>
-					<button className='tweet-quote' onClick={this.handleTwitterShare}>Tweet</button>
-					<button className='tumblr-quote' onClick={this.handleTumblrShare}>Tumblr Share</button>
-					<input type='button' id='new-quote' value='New Quote' onClick={this.fetchData} />
-				</div>
-			</div>
+      <div className='Container'>
+  			<div className='QuoteBox'>
+  				<div className='QuoteContainer'>
+  					<span className='Quote'><FontAwesomeIcon icon={faQuoteLeft} />{this.state.shareQuote}</span>
+  				</div>
+  				<div className='AuthorContainer'>
+  					<span className='Author'>{this.state.currentAuthor}</span>
+  				</div>
+  				<div className='Buttons'>
+  					<i className="fab fa-twitter-square" onClick={this.handleTwitterShare}></i>
+  					<i class="fab fa-tumblr-square" onClick={this.handleTumblrShare}></i>
+  					<input type='button' id='new-quote' value='New Quote' onClick={this.fetchData} />
+  				</div>
+  			</div>
+      </div>
 		);
 	}
 
