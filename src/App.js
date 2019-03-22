@@ -1,29 +1,82 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './index.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			shareQuote: 'I am Riz.',
+			currentAuthor: 'Riz',
+			color: 'red'
+		}
+		this.handleTwitterShare = this.handleTwitterShare.bind(this);
+		this.handleTumblrShare = this.handleTumblrShare.bind(this);
+		this.fetchData = this.fetchData.bind(this);
+		this.decodeQuote = this.decodeQuote.bind(this)
+	}
+
+
+	handleTwitterShare(){
+		window.open('https://twitter.com/intent/tweet?hashtags=quotes&text=' + '"' + this.state.shareQuote + '"' + ' ' + this.state.currentAuthor)
+	}
+
+	handleTumblrShare(){
+		window.open('https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption=' + encodeURIComponent(this.state.currentAuthor) +'&content=' + encodeURIComponent(this.state.shareQuote)+'&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button');
+	}
+
+
+	componentDidMount() {
+		this.fetchData();
+	}
+
+	decodeQuote (html) {
+		let txt = document.createElement('textarea');
+		txt.innerHTML = html;
+		return txt.value;
+	}
+
+	fetchData () {
+		fetch('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', {cache: "no-store"})
+			.then(response => response.json())
+			.then(data => {
+				let parsedQuote = data[0]['content'].replace(/<\/?\w+>/g, '')
+				let htmlQuote = this.decodeQuote(parsedQuote)
+
+				this.setState({
+						shareQuote: htmlQuote,
+						currentAuthor: data[0]['title']
+				})
+			}
+			)
+	}
+
+
+
+	render() {
+		return (
+			<div id='quoteBox'>
+				<div id='quoteText'>
+					<span id='text'><FontAwesomeIcon icon={faQuoteLeft} />{this.state.shareQuote}<FontAwesomeIcon icon={faQuoteRight} /></span>
+				</div>
+				<div id='quoteAuthor'>
+					<span id='author'>{this.state.currentAuthor}</span>
+				</div>
+				<div id='buttons'>
+					<button className='tweet-quote' onClick={this.handleTwitterShare}>Tweet</button>
+					<button className='tumblr-quote' onClick={this.handleTumblrShare}>Tumblr Share</button>
+					<input type='button' id='new-quote' value='New Quote' onClick={this.fetchData} />
+				</div>
+			</div>
+		);
+	}
+
 }
+
 
 export default App;
