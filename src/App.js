@@ -2,9 +2,19 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuoteLeft, faQuoteRight, faTwitter } from '@fortawesome/free-solid-svg-icons';
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
+function Icon ({className, handleClick}) {
+	return (
+		<i className={className} onClick={handleClick}></i>
+	)
+}
 
+function QuoteButton ({handleClick}) {
+	return (
+		<input type='button' value='New Quote' onClick={handleClick}></input>
+	)
+}
 
 class App extends React.Component {
 	constructor(props) {
@@ -29,10 +39,10 @@ class App extends React.Component {
 		window.open('https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption=' + encodeURIComponent(this.state.currentAuthor) +'&content=' + encodeURIComponent(this.state.shareQuote)+'&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button');
 	}
 
-
 	componentDidMount() {
 		this.fetchData();
 	}
+
 
 	decodeQuote (html) {
 		let txt = document.createElement('textarea');
@@ -59,23 +69,19 @@ class App extends React.Component {
 			)
 	}
 
-
-
 	render() {
 		return (
       <div className='Container'>
   			<div className='QuoteBox'>
-  				<div className='QuoteContainer'>
-  					<span className='Quote'><FontAwesomeIcon icon={faQuoteLeft} />{this.state.shareQuote}</span>
-  				</div>
-  				<div className='AuthorContainer'>
-  					<span className='Author'>{this.state.currentAuthor}</span>
-  				</div>
-  				<div className='Buttons'>
-  					<i className="fab fa-twitter-square" onClick={this.handleTwitterShare}></i>
-  					<i class="fab fa-tumblr-square" onClick={this.handleTumblrShare}></i>
-  					<input type='button' id='new-quote' value='New Quote' onClick={this.fetchData} />
-  				</div>
+						<span className='Quote'><FontAwesomeIcon icon={faQuoteLeft} />{this.state.shareQuote}</span>
+					<div className='AuthorContainer'>
+						<span className='Author'>{this.state.currentAuthor}</span>
+					</div>
+					<div className='Buttons'>
+						<Icon className="fab fa-twitter-square" handleClick={this.handleTwitterShare} />
+						<Icon className="fab fa-tumblr-square" handleClick={this.handleTumblrShare} />
+						<QuoteButton handleClick={this.fetchData} />
+					</div>
   			</div>
       </div>
 		);
