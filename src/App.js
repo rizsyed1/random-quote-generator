@@ -39,13 +39,17 @@ class App extends React.Component {
 	}
 
 
-	handleTwitterShare = () =>
-		window.open('https://twitter.com/intent/tweet?hashtags=quotes&text=' + '"' + this.state.shareQuote + '"' + ' ' + this.state.currentAuthor)
+	handleTwitterShare = () => {
+		let state = this.state.shareQuote;
+		let author = this.state.currentAuthor;
+		window.open(`https://twitter.com/intent/tweet?hashtags=quotes&text=${state} ${author}`)
+	}
 
-
-	handleTumblrShare = () =>
-		window.open('https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption=' + encodeURIComponent(this.state.currentAuthor) +'&content=' + encodeURIComponent(this.state.shareQuote)+'&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button');
-
+	handleTumblrShare = () =>{
+		let author = encodeURIComponent(this.state.currentAuthor);
+		let quote = encodeURIComponent(this.state.shareQuote);
+		window.open(`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption=${author}&content=${quote}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`);
+	}
 
 	componentDidMount = () =>
 		this.fetchData();
