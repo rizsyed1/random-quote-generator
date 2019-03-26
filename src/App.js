@@ -1,32 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import QuoteButton from './QuoteButton/QuoteButton.js';
+import QuoteDisplay from './QuoteDisplay/QuoteDisplay.js';
+import Icon from './Icon/Icon.js';
+import AuthorName from './AuthorName/AuthorName.js';
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
-
-function Icon ({className, handleClick}) {
-	return (
-		<i className={className} onClick={handleClick}></i>
-	)
-}
-
-function QuoteButton ({handleClick}) {
-	return (
-		<input type='button' value='New Quote' onClick={handleClick}></input>
-	)
-}
-
-function QuoteDisplay({quote, className, quotationMark}) {
-	return (
-		<span className={className} ><FontAwesomeIcon quotationIcon={quotationMark} />{quote}</span>
-	)
-}
-
-function AuthorName ({className, name}) {
-	return (
-		<span className='Author'>{name}</span>
-	)
-}
 
 class App extends React.Component {
 	constructor(props) {
