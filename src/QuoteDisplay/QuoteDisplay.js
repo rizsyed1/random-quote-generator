@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function QuoteDisplay({quote, className, quotationMark}) {
 	return (
-		<span className={className} ><FontAwesomeIcon quotationIcon={quotationMark} />{quote}</span>
+		<span className={className} ><FontAwesomeIcon icon={quotationMark} />{quote}</span>
 	)
 }
 
-export default QuoteDisplay;
+export default QuoteDisplay
