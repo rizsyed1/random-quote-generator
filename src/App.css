@@ -13,14 +13,21 @@
   justify-content: space-between;
   margin-top: 10%;
   padding: 1.5%;
-  max-width: 35%;
-  max-height: 40%;
-  font-size: 1.5em;
+  max-width: 32%;
+  max-height: 32%;
   border-radius: 5px;
 }
 
-.Buttons {
+.ButtonsIconContainer {
   display: flex;
   justify-content: space-between;
-  
+}
+
+.Icons {
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.NewQuote {
+  display: inline-flex;
 }

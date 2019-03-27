@@ -5,7 +5,7 @@ import QuoteButton from './QuoteButton/QuoteButton.js';
 import QuoteDisplay from './QuoteDisplay/QuoteDisplay.js';
 import Icon from './Icon/Icon.js';
 import AuthorName from './AuthorName/AuthorName.js';
-import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
+import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 
 class App extends React.Component {
 	constructor(props) {
@@ -71,12 +71,16 @@ class App extends React.Component {
 					<div className='AuthorContainer'>
 						<AuthorName className='Author' name={this.state.currentAuthor} />
 					</div>
-					<div className='Buttons'>
-						<Icon className="fab fa-twitter-square" handleClick={this.handleTwitterShare} />
-						<Icon className="fab fa-tumblr-square" handleClick={this.handleTumblrShare} />
-						<QuoteButton handleClick={this.fetchData} />
+					<div className='ButtonsIconContainer'>
+						<div className='Icons'>
+							<Icon className="fab fa-twitter-square" handleClick={this.handleTwitterShare} />
+							<Icon className="fab fa-tumblr-square" handleClick={this.handleTumblrShare} />
+						</div>
+						<div className='NewQuote'>
+							<QuoteButton handleClick={this.fetchData} />
+	  				</div>
 					</div>
-  			</div>
+				</div>
       </div>
 		);
 	}
