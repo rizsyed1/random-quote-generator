@@ -16,13 +16,6 @@ class App extends React.Component {
 			colour: 'red'
 		}
 
-		this.handleTwitterShare = this.handleTwitterShare.bind(this);
-		this.handleTumblrShare = this.handleTumblrShare.bind(this);
-		this.decodeQuote = this.decodeQuote.bind(this);
-		this.fetchData = this.fetchData.bind(this);
-		this.fetchColour = this.fetchColour.bind(this);
-
-
 	}
 
 
