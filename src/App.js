@@ -44,10 +44,10 @@ class App extends React.Component {
 
 
 	fetchData = () =>
-		fetch('//quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', {cache: "no-store"})
+		fetch('https://thesimpsonsquoteapi.glitch.me/quotes' , {cache: "no-store"})
 			.then(response => response.json())
 			.then(data => {
-				let parsedQuote = data[0]['content'].replace(/<\/?\w+\s?>/g, '')
+				let parsedQuote = data[0]['quote'].replace(/<\/?\w+\s?>/g, '')
 				let htmlQuote = this.decodeQuote(parsedQuote)
 
 				if (htmlQuote.length > 300){
@@ -55,7 +55,7 @@ class App extends React.Component {
 				}	else {
 						this.setState({
 								shareQuote: htmlQuote,
-								currentAuthor: data[0]['title']
+								currentAuthor: data[0]['character']
 						})
 					}
 			}
