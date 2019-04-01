@@ -44,7 +44,7 @@ class App extends React.Component {
 
 
 	fetchData = () =>
-		fetch('https://cors-anywhere.herokuapp.com/https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', {cache: "no-store"})
+		fetch('https://cors-anywhere.herokuapp.com/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', {cache: "no-store"})
 			.then(response => response.json())
 			.then(data => {
 				let parsedQuote = data[0]['content'].replace(/<\/?\w+\s?>/g, '')
