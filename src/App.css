@@ -2,12 +2,11 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  border: solid;
   height: 100vh;
+  transition-duration: 2s;
 }
 
 .QuoteBox {
-  border: solid;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
