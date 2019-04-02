@@ -5,7 +5,8 @@ import Icon from './Icon/Icon.js';
 import AuthorName from './AuthorName/AuthorName.js';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import Colours from './Colours/colours.js';
-import { Container, QuoteBox, ButtonsIconContainer, Icons, NewQuote } from './styles.js'
+import './App.css'
+
 
 class App extends React.Component {
 	constructor(props) {
@@ -65,28 +66,29 @@ class App extends React.Component {
 	
 	}
 
-	fetchColour = () => 
+	fetchColour = () => {
 		this.setState({
 			colour: Colours[Math.floor(Math.random() * (Colours.length) )]
 		});
+	}
 
 
 	render() {
-		return (
-			<div style={Container}>
-				<div style={QuoteBox}>
+		return (		
+			<div style={{backgroundColor: this.state.colour}} className='Container'>
+				<div className='QuoteBox'>
 					<div className='QuoteElement'>
 						<QuoteDisplay className='quote' quotationMark={faQuoteLeft} quote={this.state.shareQuote} />
 					</div>
 					<div className='AuthorContainer'>
 						<AuthorName className='Author' name={this.state.currentAuthor} />
 					</div>
-					<div style={ButtonsIconContainer}>
-						<div style={Icons}>
+					<div className='ButtonsIconContainer'>
+						<div className='Icons'>
 							<Icon className="fab fa-twitter-square" handleClick={this.handleTwitterShare} />
 							<Icon className="fab fa-tumblr-square" handleClick={this.handleTumblrShare} />
 						</div>
-						<div style={NewQuote}>
+						<div className='NewQuote'>
 							<QuoteButton handleClick={this.fetchData} />
 						</div>
 					</div>

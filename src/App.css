@@ -1,4 +1,4 @@
-const Container = {
+.Container {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -6,7 +6,7 @@ const Container = {
   height: 100vh;
 }
 
-const QuoteBox = {
+.QuoteBox {
   border: solid;
   display: flex;
   flex-direction: column;
@@ -16,18 +16,19 @@ const QuoteBox = {
   max-width: 32%;
   max-height: 32%;
   border-radius: 5px;
+  background-color: white;
 }
 
-const ButtonsIconContainer = {
+.ButtonsIconContainer {
   display: flex;
   justify-content: space-between;
 }
 
- const Icons = {
+.Icons {
   display: inline-flex;
   justify-content: flex-start;
 }
 
-const NewQuote = {
+.NewQuote {
   display: inline-flex;
 }
