@@ -1,4 +1,4 @@
-.Container{
+const Container = {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -6,7 +6,7 @@
   height: 100vh;
 }
 
-.QuoteBox {
+const QuoteBox = {
   border: solid;
   display: flex;
   flex-direction: column;
@@ -18,16 +18,16 @@
   border-radius: 5px;
 }
 
-.ButtonsIconContainer {
+const ButtonsIconContainer = {
   display: flex;
   justify-content: space-between;
 }
 
-.Icons {
+ const Icons = {
   display: inline-flex;
   justify-content: flex-start;
 }
 
-.NewQuote {
+const NewQuote = {
   display: inline-flex;
 }

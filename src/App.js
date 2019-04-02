@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
 import QuoteButton from './QuoteButton/QuoteButton.js';
 import QuoteDisplay from './QuoteDisplay/QuoteDisplay.js';
 import Icon from './Icon/Icon.js';
 import AuthorName from './AuthorName/AuthorName.js';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
-import colours from './Colours/colours.js';
+import Colours from './Colours/colours.js';
+import { Container, QuoteBox, ButtonsIconContainer, Icons, NewQuote } from './styles.js'
 
 class App extends React.Component {
 	constructor(props) {
@@ -43,7 +43,7 @@ class App extends React.Component {
 	}
 
 
-	fetchData = () =>
+	fetchData = () => {
 		fetch('https://thesimpsonsquoteapi.glitch.me/quotes' , {cache: "no-store"})
 			.then(response => response.json())
 			.then(data => {
@@ -59,34 +59,39 @@ class App extends React.Component {
 						})
 					}
 			}
-			)
+			);
+		this.fetchColour();
+		
+	
+	}
 
-	fetchColour = () =>
+	fetchColour = () => 
 		this.setState({
-			colour: colours[Math.floor(Math.random() * (colours.length - 1) )]
-		})
+			colour: Colours[Math.floor(Math.random() * (Colours.length) )]
+		});
+
 
 	render() {
 		return (
-      <div className='Container'>
-  			<div className='QuoteBox'>
+			<div style={Container}>
+				<div style={QuoteBox}>
 					<div className='QuoteElement'>
 						<QuoteDisplay className='quote' quotationMark={faQuoteLeft} quote={this.state.shareQuote} />
 					</div>
 					<div className='AuthorContainer'>
 						<AuthorName className='Author' name={this.state.currentAuthor} />
 					</div>
-					<div className='ButtonsIconContainer'>
-						<div className='Icons'>
+					<div style={ButtonsIconContainer}>
+						<div style={Icons}>
 							<Icon className="fab fa-twitter-square" handleClick={this.handleTwitterShare} />
 							<Icon className="fab fa-tumblr-square" handleClick={this.handleTumblrShare} />
 						</div>
-						<div className='NewQuote'>
+						<div style={NewQuote}>
 							<QuoteButton handleClick={this.fetchData} />
-	  				</div>
+						</div>
 					</div>
 				</div>
-      </div>
+			</div>
 		);
 	}
 
