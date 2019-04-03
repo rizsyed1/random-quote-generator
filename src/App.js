@@ -78,15 +78,15 @@ class App extends React.Component {
 			<div style={{backgroundColor: this.state.colour}} className='Container'>
 				<div className='QuoteBox'>
 					<div className='QuoteElement'>
-						<QuoteDisplay fontColour={this.state.colour} className='quote' quotationMark={faQuoteLeft} quote={this.state.shareQuote} />
+					<QuoteDisplay fontColour={this.state.colour} className='quote' quotationMark={faQuoteLeft} quote={this.state.shareQuote} />
 					</div>
 					<div className='AuthorContainer'>
 						<AuthorName fontColour={this.state.colour} className='Author' name={this.state.currentAuthor} />
 					</div>
 					<div className='ButtonsIconContainer'>
 						<div className='Icons'>
-							<Icon className="fab fa-twitter-square" handleClick={this.handleTwitterShare} />
-							<Icon className="fab fa-tumblr-square" handleClick={this.handleTumblrShare} />
+							<Icon fontColour={this.state.colour} className="fab fa-twitter-square" handleClick={this.handleTwitterShare} />
+							<Icon fontColour={this.state.colour} className="fab fa-tumblr-square" handleClick={this.handleTumblrShare} />
 						</div>
 						<div className='NewQuote'>
 							<QuoteButton handleClick={this.fetchData} />

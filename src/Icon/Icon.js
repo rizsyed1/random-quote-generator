@@ -2,9 +2,9 @@ import React from 'react';
 import './Icon.css'
 
 
-function Icon ({className, handleClick}) {
+function Icon ({className, handleClick, fontColour}) {
 	return (
-		<i className={className} onClick={handleClick}></i>
+		<i style={{color: fontColour}} className={className} onClick={handleClick}></i>
 	)
 }
 
