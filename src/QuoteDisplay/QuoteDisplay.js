@@ -2,9 +2,9 @@ import React from 'react';
 import './QuoteDisplay.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function QuoteDisplay({quote, className, quotationMark}) {
+function QuoteDisplay({quote, className, quotationMark, fontColour}) {
 	return (
-		<span className={className} ><FontAwesomeIcon icon={quotationMark} />{quote}</span>
+		<span style={{color: fontColour}} className={className} ><FontAwesomeIcon icon={quotationMark} />{quote}</span>
 	)
 }
 

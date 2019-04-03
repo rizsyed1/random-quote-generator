@@ -5,7 +5,8 @@ import Icon from './Icon/Icon.js';
 import AuthorName from './AuthorName/AuthorName.js';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import Colours from './Colours/colours.js';
-import './App.css'
+import './App.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 class App extends React.Component {
@@ -72,16 +73,15 @@ class App extends React.Component {
 		});
 	}
 
-
 	render() {
 		return (		
 			<div style={{backgroundColor: this.state.colour}} className='Container'>
 				<div className='QuoteBox'>
 					<div className='QuoteElement'>
-						<QuoteDisplay className='quote' quotationMark={faQuoteLeft} quote={this.state.shareQuote} />
+						<QuoteDisplay fontColour={this.state.colour} className='quote' quotationMark={faQuoteLeft} quote={this.state.shareQuote} />
 					</div>
 					<div className='AuthorContainer'>
-						<AuthorName className='Author' name={this.state.currentAuthor} />
+						<AuthorName fontColour={this.state.colour} className='Author' name={this.state.currentAuthor} />
 					</div>
 					<div className='ButtonsIconContainer'>
 						<div className='Icons'>

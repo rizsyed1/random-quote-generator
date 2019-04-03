@@ -1,9 +1,9 @@
 import React from 'react'
 import './AuthorName.css'
 
-function AuthorName ({className, name}) {
+function AuthorName ({className, name, fontColour}) {
 	return (
-		<span className='Author'>{name}</span>
+		<span style={{color: fontColour}} className='Author'>{name}</span>
 	)
 }
 
