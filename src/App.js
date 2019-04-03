@@ -6,7 +6,6 @@ import AuthorName from './AuthorName/AuthorName.js';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import Colours from './Colours/colours.js';
 import './App.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 class App extends React.Component {
@@ -52,7 +51,7 @@ class App extends React.Component {
 				let parsedQuote = data[0]['quote'].replace(/<\/?\w+\s?>/g, '')
 				let htmlQuote = this.decodeQuote(parsedQuote)
 
-				if (htmlQuote.length > 300){
+				if (htmlQuote.length > 250){
 					this.fetchData()
 				}	else {
 						this.setState({
