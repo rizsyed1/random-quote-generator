@@ -1,5 +1,6 @@
 i {
   font-size: 2.5em;
-  margin: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
   transition-duration: 2s;
 }

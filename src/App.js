@@ -74,22 +74,23 @@ class App extends React.Component {
 	}
 
 	render() {
-		return (		
-			<div style={{backgroundColor: this.state.colour}} className='Container'>
+		let mainColour = this.state.colour;
+		return (	
+			<div style={{backgroundColor: mainColour}} className='Container'>
 				<div className='QuoteBox'>
 					<div className='QuoteElement'>
-					<QuoteDisplay fontColour={this.state.colour} className='quote' quotationMark={faQuoteLeft} quote={this.state.shareQuote} />
+					<QuoteDisplay fontColour={mainColour} className='quote' quotationMark={faQuoteLeft} quote={this.state.shareQuote} />
 					</div>
 					<div className='AuthorContainer'>
-						<AuthorName fontColour={this.state.colour} className='Author' name={this.state.currentAuthor} />
+						<AuthorName fontColour={mainColour} className='Author' name={this.state.currentAuthor} />
 					</div>
 					<div className='ButtonsIconContainer'>
 						<div className='Icons'>
-							<Icon fontColour={this.state.colour} className="fab fa-twitter-square" handleClick={this.handleTwitterShare} />
-							<Icon fontColour={this.state.colour} className="fab fa-tumblr-square" handleClick={this.handleTumblrShare} />
+							<Icon fontColour={mainColour} className="fab fa-twitter-square" handleClick={this.handleTwitterShare} />
+							<Icon fontColour={mainColour} className="fab fa-tumblr-square" handleClick={this.handleTumblrShare} />
 						</div>
 						<div className='NewQuote'>
-							<QuoteButton handleClick={this.fetchData} />
+							<QuoteButton fontColour={mainColour} handleClick={this.fetchData} />
 						</div>
 					</div>
 				</div>

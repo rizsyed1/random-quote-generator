@@ -1,9 +1,9 @@
 import React from 'react';
 import './QuoteButton.css';
 
-function QuoteButton ({handleClick}) {
+function QuoteButton ({handleClick, fontColour}) {
 	return (
-		<input type='button' value='New Quote' onClick={handleClick}></input>
+		<input style={{backgroundColor: fontColour}} type='button' value='New Quote' onClick={handleClick}></input>
 	)
 }
 
