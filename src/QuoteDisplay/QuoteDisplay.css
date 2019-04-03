@@ -1,4 +1,10 @@
 span{
-  font-size: 1.7em;
+  font-size: 3em;
   transition-duration: 2s;
+}
+
+@media (min-width: 1024px) {
+  span{
+    font-size: 1.7em;
+  }
 }

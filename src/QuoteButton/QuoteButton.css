@@ -1,6 +1,13 @@
 input {
-    font-size: 1.2em;
+    font-size: 2em;
     color: white;
     transition-duration: 2s;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+    input {
+        font-size: 1.2em;
+    }
 }
