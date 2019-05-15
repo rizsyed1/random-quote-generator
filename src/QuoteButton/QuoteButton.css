@@ -4,6 +4,7 @@ input {
     transition-duration: 2s;
     border-radius: 5px;
     cursor: pointer;
+    border: none;
 }
 
 @media (min-width: 1024px) {
