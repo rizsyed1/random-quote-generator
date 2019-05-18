@@ -1,13 +1,15 @@
 {
-  "main.css": "/random-quote-generator/static/css/main.0474f5b3.chunk.css",
-  "main.js": "/random-quote-generator/static/js/main.44ec351c.chunk.js",
-  "main.js.map": "/random-quote-generator/static/js/main.44ec351c.chunk.js.map",
-  "runtime~main.js": "/random-quote-generator/static/js/runtime~main.df6529ef.js",
-  "runtime~main.js.map": "/random-quote-generator/static/js/runtime~main.df6529ef.js.map",
-  "static/js/2.f4be1e78.chunk.js": "/random-quote-generator/static/js/2.f4be1e78.chunk.js",
-  "static/js/2.f4be1e78.chunk.js.map": "/random-quote-generator/static/js/2.f4be1e78.chunk.js.map",
-  "index.html": "/random-quote-generator/index.html",
-  "precache-manifest.d7a93f82aded272100cad9ad55b7af9c.js": "/random-quote-generator/precache-manifest.d7a93f82aded272100cad9ad55b7af9c.js",
-  "service-worker.js": "/random-quote-generator/service-worker.js",
-  "static/css/main.0474f5b3.chunk.css.map": "/random-quote-generator/static/css/main.0474f5b3.chunk.css.map"
+  "files": {
+    "main.css": "/RizwanSyed357/random-quote-generator/static/css/main.b0a4fd7c.chunk.css",
+    "main.js": "/RizwanSyed357/random-quote-generator/static/js/main.7178e5eb.chunk.js",
+    "main.js.map": "/RizwanSyed357/random-quote-generator/static/js/main.7178e5eb.chunk.js.map",
+    "runtime~main.js": "/RizwanSyed357/random-quote-generator/static/js/runtime~main.d71a4492.js",
+    "runtime~main.js.map": "/RizwanSyed357/random-quote-generator/static/js/runtime~main.d71a4492.js.map",
+    "static/js/2.52a6816e.chunk.js": "/RizwanSyed357/random-quote-generator/static/js/2.52a6816e.chunk.js",
+    "static/js/2.52a6816e.chunk.js.map": "/RizwanSyed357/random-quote-generator/static/js/2.52a6816e.chunk.js.map",
+    "index.html": "/RizwanSyed357/random-quote-generator/index.html",
+    "precache-manifest.e47dcbfb54ad0edafb43bf73e3acb42a.js": "/RizwanSyed357/random-quote-generator/precache-manifest.e47dcbfb54ad0edafb43bf73e3acb42a.js",
+    "service-worker.js": "/RizwanSyed357/random-quote-generator/service-worker.js",
+    "static/css/main.b0a4fd7c.chunk.css.map": "/RizwanSyed357/random-quote-generator/static/css/main.b0a4fd7c.chunk.css.map"
+  }
 }
